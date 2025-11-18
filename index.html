@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="style.css" />
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-family: "Fira Sans", sans-serif;
+        font-weight: 0;
+        font-style: normal;
+    }
+
+    .navbar {
+        width: 100%;
+        padding: 25px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .navbar-img {
+        height: 90px;
+        width: 90px;
+    }
+
+    .navbar-list {
+        list-style: none;
+        display: flex;
+        padding: 30px;
+        gap: 75px;
+    }
+
+    .navbar-list a {
+        position: relative;
+        text-decoration: none;
+        color: grey;
+        padding: 8px 0;
+        transition: color 0.3s;
+        font-weight: 500;
+        font-size: large;
+    }
+
+    .navbar-list a:hover {
+        color: #fda92a;
+        transition: color 0.3s;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        margin: 15px 15px;
+        height: 45px;
+        border: none;
+        border-radius: 10px;
+        background-color: #fda92a;
+        color: white;
+    }
+
+    .btn:hover {
+        color: black;
+        cursor: pointer;
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(253, 169, 42, 0.28);
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(autofill, minmax(1, 1fr));
+        grid-template-rows: repeat(1, 1fr);
+        gap: 30px;
+        padding: 10px 60px 0 50px;
+    }
+
+    .div6 {
+        grid-column: span 3 / span 3;
+        grid-row: span 3 / span 3;
+        grid-column-start: 3;
+        grid-row-start: 1;
+        padding-left: 40px;
+    }
+
+    .div img {
+        border: 1px solid transparent;
+        border-radius: 20px;
+        height: 500px;
+    }
+
+    .div7 {
+        padding-top: 200px;
+        grid-column: span 2 / span 2;
+        grid-row: span 2 / span 2;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        font-size: 20px;
+        opacity: 0;
+        transform: translateX(-30px);
+        animation: slidein 3s cubic-bezier(0.22, 0.98, 0.6, 1) both;
+    }
+
+    @keyframes slidein {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 2fr));
+
+
+    }
+
+    .card {
+        height: 500px;
+        width: 320px;
+        padding: 18px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(253, 169, 42, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 10px 30px rgba(13, 27, 43, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        overflow: hidden;
+        position: relative;
+        transition: transform 300ms ease, box-shadow 300ms ease;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-left: 20px;
+        margin-top: 50px;
+        backdrop-filter: blur(6px);
+
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        left: -40%;
+        top: -60%;
+        width: 160%;
+        height: 160%;
+        background: linear-gradient(120deg, rgba(253, 169, 42, 0.07), rgba(0, 120, 255, 0.03));
+        transform: rotate(12deg);
+        pointer-events: none;
+    }
+
+    .card::after {
+        content: "FEATURE";
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        background: linear-gradient(90deg, #fda92a, #ff6a00);
+        color: #111;
+        font-weight: 700;
+        padding: 6px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        letter-spacing: 0.6px;
+        box-shadow: 0 6px 18px rgba(253, 169, 42, 0.18);
+    }
+
+    .media img {
+        height: 250px;
+        width: fit-content;
+    }
+
+    .add {
+        border: none;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 7px 0 7px 0;
+        background: grey;
+        cursor: pointer;
+        font-weight: 700;
+        color: white;
+        padding: 5px 5px;
+
+    }
+
+    .add:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(253, 169, 42, 0.28);
+    }
+
+    .add:hover {
+        background-color: #fda92a;
+
+    }
+
+    .title h3 {
+        margin-bottom: 10px;
+        font-size: 23px;
+    }
+
+    .price {
+        color: green;
+        margin: 7px 0 7px 0;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+
+    .footer-links {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 10px;
+
+    }
+</style>
+
+<body>
+
+    <div class="navbar">
+        <div class="navimg">
+            <img class="navbar-img"
+                src="https://images.seeklogo.com/logo-png/55/1/asus-tuf-gaming-logo-png_seeklogo-555052.png" alt="" />
+        </div>
+        <ul class="navbar-list">
+            <li><a href="">Home</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="">Accessories</a></li>
+            <li><a href="">Support</a></li>
+            <li><a href="">News</a></li>
+            <li><a href="">More</a></li>
+        </ul>
+        <button class="btn">Sign Up</button>
+    </div>
+
+    <div class="parent">
+        <div class="div7">
+            <h3>
+                The ASUS TUF Gaming F15 is a durable and powerful gaming laptop that
+                features a 15.6-inch display, an Intel processor, an NVIDIA GeForce
+                GPU, and a high-refresh-rate screen, with recent models offering up to
+                144Hz or higher.
+            </h3>
+        </div>
+        <div class="div6">
+            <img class="divimg" src="https://www.asus.com/campaign/tuf-gaming/upload/kv/20230216101504_m2.jpg" alt="" />
+        </div>
+    </div>
+    <div>
+        <h1 style="text-align: center; padding-top: 70px" ;>
+            Welcome To Our Shop
+        </h1>
+    </div>
+    <div class="img">
+        <div class="container">
+            <div class="card">
+                <div class="media">
+                    <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                        alt="Product image" height="200px" width="250px" id="product-img" />
+
+                    <div class="content">
+                        <div class="title">
+                            <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                            <div class="price" id="product-price" data-price="24.99">
+                                $624.99
+                            </div>
+                        </div>
+
+                        <p id="product-desc">
+                            AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                            an NVIDIA® GeForce RTX™ 4070.
+                        </p>
+                        <button class="add" id="btn-add">Add to cart</button>
+                    </div>
+                    <div class="meta">
+                        <span class="badge" id="stock">In stock</span>
+                        <div id="total" style="margin-left: auto; font-weight: 700">
+                            Total: $624.99
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                            alt="Product image" height="200px" width="250px" id="product-img" />
+
+                        <div class="content">
+                            <div class="title">
+                                <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                                <div class="price" id="product-price" data-price="24.99">
+                                    $624.99
+                                </div>
+                            </div>
+
+                            <p id="product-desc">
+                                AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                                an NVIDIA® GeForce RTX™ 4070.
+                            </p>
+                            <button class="add" id="btn-add">Add to cart</button>
+                        </div>
+                        <div class="meta">
+                            <span class="badge" id="stock">In stock</span>
+                            <div id="total" style="margin-left: auto; font-weight: 700">
+                                Total: $624.99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                            alt="Product image" height="200px" width="250px" id="product-img" />
+
+                        <div class="content">
+                            <div class="title">
+                                <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                                <div class="price" id="product-price" data-price="24.99">
+                                    $624.99
+                                </div>
+                            </div>
+
+                            <p id="product-desc">
+                                AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                                an NVIDIA® GeForce RTX™ 4070.
+                            </p>
+                            <button class="add" id="btn-add">Add to cart</button>
+                        </div>
+                        <div class="meta">
+                            <span class="badge" id="stock">In stock</span>
+                            <div id="total" style="margin-left: auto; font-weight: 700">
+                                Total: $624.99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                            alt="Product image" height="200px" width="250px" id="product-img" />
+
+                        <div class="content">
+                            <div class="title">
+                                <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                                <div class="price" id="product-price" data-price="24.99">
+                                    $624.99
+                                </div>
+                            </div>
+
+                            <p id="product-desc">
+                                AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                                an NVIDIA® GeForce RTX™ 4070.
+                            </p>
+                            <button class="add" id="btn-add">Add to cart</button>
+                        </div>
+                        <div class="meta">
+                            <span class="badge" id="stock">In stock</span>
+                            <div id="total" style="margin-left: auto; font-weight: 700">
+                                Total: $624.99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="media">
+                    <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                        alt="Product image" height="200px" width="250px" id="product-img" />
+
+                    <div class="content">
+                        <div class="title">
+                            <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                            <div class="price" id="product-price" data-price="24.99">
+                                $624.99
+                            </div>
+                        </div>
+
+                        <p id="product-desc">
+                            AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                            an NVIDIA® GeForce RTX™ 4070.
+                        </p>
+                        <button class="add" id="btn-add">Add to cart</button>
+                    </div>
+                    <div class="meta">
+                        <span class="badge" id="stock">In stock</span>
+                        <div id="total" style="margin-left: auto; font-weight: 700">
+                            Total: $624.99
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                            alt="Product image" height="200px" width="250px" id="product-img" />
+
+                        <div class="content">
+                            <div class="title">
+                                <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                                <div class="price" id="product-price" data-price="24.99">
+                                    $624.99
+                                </div>
+                            </div>
+
+                            <p id="product-desc">
+                                AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                                an NVIDIA® GeForce RTX™ 4070.
+                            </p>
+                            <button class="add" id="btn-add">Add to cart</button>
+                        </div>
+                        <div class="meta">
+                            <span class="badge" id="stock">In stock</span>
+                            <div id="total" style="margin-left: auto; font-weight: 700">
+                                Total: $624.99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                            alt="Product image" height="200px" width="250px" id="product-img" />
+
+                        <div class="content">
+                            <div class="title">
+                                <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                                <div class="price" id="product-price" data-price="24.99">
+                                    $624.99
+                                </div>
+                            </div>
+
+                            <p id="product-desc">
+                                AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                                an NVIDIA® GeForce RTX™ 4070.
+                            </p>
+                            <button class="add" id="btn-add">Add to cart</button>
+                        </div>
+                        <div class="meta">
+                            <span class="badge" id="stock">In stock</span>
+                            <div id="total" style="margin-left: auto; font-weight: 700">
+                                Total: $624.99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/ab10b6f8-2ef7-4a44-98a5-6f34c50ea1b8/"
+                            alt="Product image" height="200px" width="250px" id="product-img" />
+
+                        <div class="content">
+                            <div class="title">
+                                <h3 id="product-title">ASUS TUF Gaming A16</h3>
+                                <div class="price" id="product-price" data-price="24.99">
+                                    $624.99
+                                </div>
+                            </div>
+
+                            <p id="product-desc">
+                                AMD Ryzen™ 9 8945H and up to 32GB of. Gaming performance of up to
+                                an NVIDIA® GeForce RTX™ 4070.
+                            </p>
+                            <button class="add" id="btn-add">Add to cart</button>
+                        </div>
+                        <div class="meta">
+                            <span class="badge" id="stock">In stock</span>
+                            <div id="total" style="margin-left: auto; font-weight: 700">
+                                Total: $624.99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-end"
+            style="background-color: #CFCECE; margin-top: 20px; border-radius: 20px 0 0 0; border: 1px solid #CFCECE ;">
+            <h1 style="text-align: center; padding-top: 20px;">About Us</h1>
+
+            <div class="footer-links">
+                <div class="footer-more">
+                    <h3>Contact Us</h3>
+                    <div style="padding: 7px 0 0 10px;">
+                        <p><a style="text-decoration: none; color:grey;" href="">Support</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">FAQs</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">Follow</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">More</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Supports</h3>
+                    <div style="padding: 7px 0 0 10px;">
+                        <p><a style="text-decoration: none; color:grey;" href="">Email Us</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">Contact Us</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">ASUS Support Videos</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">MyASUS</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Displays / Desktops</h3>
+                    <div style="padding: 7px 0 0 10px;">
+                        <p><a style="text-decoration: none; color:grey;" href="">Monitors</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">Projectors</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">All-in-One PCs</a></p>
+                        <p><a style="text-decoration: none; color:grey" href="">Gaming Tower PCs</a></p>
+                    </div>
+
+                </div>
+
+            </div>
+            <br>
+            <hr>
+            <div style="text-align: center;">
+                &copy;Design by Heng.
+            </div>
+
+
+
+
+    </footer>
+</body>
+
+</html>
